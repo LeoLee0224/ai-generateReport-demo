@@ -25,6 +25,7 @@ const updateOverallPromptBtn = document.getElementById(
 
 let subjectName = "普通話";
 let primaryLevel = "六年級";
+let timeLimitMins = "1";
 // 儲存聊天歷史
 let chatMessages = [];
 let currentReport = ""; // 儲存當前報告內容
@@ -40,7 +41,7 @@ let studentLastAudioTranscript = `我在上学的时候是体育课然后我们�
 let gradingCriteria = `總分100分：內容豐富50%、連貫，先後次序，條理清晰25%、用詞恰當25%`;
 
 // 設定預設的 system prompt
-let systemPrompt = `你現在是一位專業的${subjectName}老師，負責為${primaryLevel}的學生進行${subjectName}口語練習表現進行評分和提供建議。
+let systemPrompt = `你現在是一位專業的${subjectName}老師，負責為${primaryLevel}的學生進行${subjectName}的${timeLimitMins}分鐘口語練習表現進行評分和提供建議。
 
 你的工作是：
 1. 比較「標準答案」和「學生回答」的內容：
@@ -71,7 +72,7 @@ let systemPrompt = `你現在是一位專業的${subjectName}老師，負責為$
 請以正式報告的格式輸出${subjectName}口語練習報告。`;
 
 // 設定整體評估的 system prompt
-let overallSystemPrompt = `你現在是一位專業的${subjectName}老師，負責為一組${primaryLevel}的學生進行${subjectName}口語練習的整體表現評估。
+let overallSystemPrompt = `你現在是一位專業的${subjectName}老師，負責為一組${primaryLevel}的學生進行${subjectName}的${timeLimitMins}分鐘口語練習的整體表現評估。
 
 你的工作是：
 1. 比較「標準答案」和「所有學生的回答」：
