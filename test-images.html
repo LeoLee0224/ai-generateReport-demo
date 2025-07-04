@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>圖片測試頁面</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .image-container {
+        margin: 20px 0;
+        text-align: center;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+      }
+      .error {
+        color: red;
+        font-weight: bold;
+      }
+      .success {
+        color: green;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>圖片載入測試</h1>
+
+    <div class="image-container">
+      <h2>Sample Boy Image</h2>
+      <p>URL: <code>./assets/sample_boy.jpg</code></p>
+      <img
+        src="./assets/sample_boy.jpg"
+        alt="Sample Boy"
+        onload="showSuccess(this)"
+        onerror="showError(this)"
+      />
+      <div id="boy-status"></div>
+    </div>
+
+    <div class="image-container">
+      <h2>Sample Girl Image</h2>
+      <p>URL: <code>./assets/sample_girl.jpg</code></p>
+      <img
+        src="./assets/sample_girl.jpg"
+        alt="Sample Girl"
+        onload="showSuccess(this)"
+        onerror="showError(this)"
+      />
+      <div id="girl-status"></div>
+    </div>
+
+    <div class="image-container">
+      <h2>直接 URL 測試</h2>
+      <p>請嘗試直接訪問以下 URL：</p>
+      <ul>
+        <li>
+          <a
+            href="https://leolee0224.github.io/ai-generateReport-demo/assets/sample_boy.jpg"
+            target="_blank"
+            >https://leolee0224.github.io/ai-generateReport-demo/assets/sample_boy.jpg</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://leolee0224.github.io/ai-generateReport-demo/assets/sample_girl.jpg"
+            target="_blank"
+            >https://leolee0224.github.io/ai-generateReport-demo/assets/sample_girl.jpg</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      function showSuccess(img) {
+        const statusDiv = img.nextElementSibling;
+        statusDiv.innerHTML = '<p class="success">✅ 圖片載入成功！</p>';
+      }
+
+      function showError(img) {
+        const statusDiv = img.nextElementSibling;
+        statusDiv.innerHTML = '<p class="error">❌ 圖片載入失敗</p>';
+      }
+    </script>
+  </body>
+</html>
